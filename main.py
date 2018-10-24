@@ -88,6 +88,18 @@ def delete(c):
 	outtab = ''.join(outtab)
 
 
+def help():
+	print('Genereal usage: <uppercase_letter>, <lowercase_letter>')
+	print('Example: A, d - substitute all A\'s to d\'s')
+	print('del <letter> - delete the mapping for a certain letter')
+	print('analyze - perform a frequency analysis on the text on single characters')
+	print('undo - remove the last mapping you added')
+	print('file <file_name> - read encrypted text from file')
+	print('exit/quit - exit the program')
+	input('Press any key to continue...')
+	os.system('clear')	
+
+
 print('Enter the text')
 text = get_input(0)
 
@@ -121,7 +133,7 @@ while not done:
 			exit()
 
 	elif user.lower() == 'help':
-		print('Only you can help yourself!')
+		help()		
 
 	elif user.lower() == 'analyze':
 		analyze(text)
@@ -136,15 +148,13 @@ while not done:
 			p = p.strip(' ')
 			decrypt(c, p)
 		except Exception as e:
-			pass
-			# print('Some error occured: {}'.format(e))
+			print('Some error occured: {}'.format(e))
 	
 	elif user.lower().startswith('del'):
-	#	try:
-		delete(user.split()[1])
-	#	except Exception as e:
-	#		pass
-			# print('Some error occured: {}'.format(e))
+		try:
+			delete(user.split()[1])
+		except Exception as e:
+			print('Some error occured: {}'.format(e))
 
 	elif user.lower() == 'undo':
 		intab = intab[:-1]
