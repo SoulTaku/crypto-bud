@@ -65,6 +65,11 @@ def info():
 		else:
 			print(' ', end='|')
 		
+	print('\n')
+
+	not_found = [i for i in string.ascii_lowercase if i not in outtab]
+
+	print(''.join(not_found) + ' ' * 26)
 	print()
 
 
