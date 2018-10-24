@@ -37,6 +37,8 @@ def analyze(text):
 				print('{} -> {} ? {}'.format(l, MOST_COMMON[i], fr))
 			except:
 				print('{} - {}'.format(l, fr))
+	input('Press any key to continue...')
+	os.system('clear')
 
 
 def clear(l):
